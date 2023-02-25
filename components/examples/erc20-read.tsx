@@ -9,7 +9,7 @@ import {
 } from "../../lib/blockchain";
 import { useContractAutoLoad } from "../../hooks/use-contract-auto-load";
 import { useToken } from "../../lib/state";
-import { utils } from "ethers";
+import { BigNumber, utils } from "ethers";
 
 function ERC20Image({
   address,
@@ -65,7 +65,11 @@ function ERC20TotalSupply({
   const { data } = useErc20TotalSupply({
     address: address,
   });
-  return <span className={className}>{utils.formatUnits(data)}</span>;
+  return (
+    <span className={className}>
+      {utils.formatUnits(data || BigNumber.from(0))}
+    </span>
+  );
 }
 
 // @TODO: Add Decimals to Display

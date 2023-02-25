@@ -17,7 +17,7 @@ const Home: NextPage = () => {
         <title>Introduction to Web3 Frontend Applications</title>
         <meta name="description" content="Building Web3 Applications" />
       </Head>
-      <main className="flex flex-col items-center justify-center  space-y-10">
+      <main className="flex flex-col items-center justify-center space-y-10 py-10">
         <h1 className="mt-40 text-7xl lg:text-9xl font-bold text-transparent bg-clip-text from-red-500 to-blue-500 bg-gradient-to-r">
           Welcome To
           <br />
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
                   <ERC20WriteMint />
                   <ERC20WriteTransfer />
                 </>
-                Deploy ERC20
+                <></>
               </BranchTokenMinted>
             </>
           </BranchIsWalletConnected>

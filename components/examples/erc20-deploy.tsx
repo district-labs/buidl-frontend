@@ -19,6 +19,7 @@ export function DeployERC20Contract() {
 
   const [contractAddress, setContractAddress] = useState<string | undefined>();
   const onSubmit = async (data: any) => {
+    // https://docs.ethers.org/v5/api/contract/example/#example-erc-20-contract--deploying-a-contract
     const factory = new ethers.ContractFactory(
       ERC20ABI.abi,
       ERC20ABI.bytecode,
