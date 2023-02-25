@@ -1,19 +1,24 @@
-import '../styles/globals.css';
-import '@rainbow-me/rainbowkit/styles.css';
-import type { AppProps } from 'next/app';
-import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
+import "../styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
+import type { AppProps } from "next/app";
+import {
+  RainbowKitProvider,
+  getDefaultWallets,
+  ConnectButton,
+} from "@rainbow-me/rainbowkit";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { mainnet, polygon, optimism, arbitrum, goerli } from "wagmi/chains";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
+import { useIsMounted } from "../hooks/use-is-mounted";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
     mainnet,
-    polygon,
     optimism,
     arbitrum,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
+    polygon,
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli] : []),
   ],
   [
     alchemyProvider({
@@ -26,24 +31,42 @@ const { chains, provider, webSocketProvider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'RainbowKit App',
+  appName: "RainbowKit App",
   chains,
 });
 
 const wagmiClient = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors,
   provider,
   webSocketProvider,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const isMounted = useIsMounted();
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <>
+      {isMounted && (
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider chains={chains}>
+            <Component {...pageProps} />
+            <div className="fixed right-5 bottom-5">
+              <ConnectButton
+                showBalance={false}
+                accountStatus={{
+                  smallScreen: "avatar",
+                  largeScreen: "avatar",
+                }}
+                chainStatus={{
+                  smallScreen: "icon",
+                  largeScreen: "icon",
+                }}
+              />
+            </div>
+          </RainbowKitProvider>
+        </WagmiConfig>
+      )}
+    </>
   );
 }
 

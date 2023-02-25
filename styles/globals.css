@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  @apply bg-white rounded-lg p-10 shadow-sm hover:shadow-md hover:bg-white transition-all duration-300 ease-in-out border-2;
+}
+
+.card-min {
+  @apply bg-neutral-50 dark:bg-neutral-600 dark:text-white bg-opacity-50 rounded-lg shadow-sm;
+}
+
+.btn-normal {
+  @apply py-2 bg-neutral-700 rounded-lg hover:scale-105 font-bold text-white px-5
+}
+
+.input {
+  @apply border-0 px-3 py-3 placeholder-neutral-400 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150;
+}

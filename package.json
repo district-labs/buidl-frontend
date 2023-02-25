@@ -2,18 +2,26 @@
   "name": "buidl-frontend",
   "private": true,
   "version": "0.1.0",
+  "type": "commonjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "wagmi:init": "wagmi init",
+    "wagmi:generate": "wagmi generate",
+    "prebuild": "wagmi generate",
+    "predev": "wagmi generate"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.11.0",
+    "@wagmi/cli": "^0.1.10",
     "ethers": "^5.7.2",
+    "jotai": "^2.0.2",
     "next": "^12.1.6",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.43.2",
     "siwe": "^1.1.6",
     "wagmi": "^0.11.0"
   },
