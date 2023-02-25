@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { useAccount } from 'wagmi';
 
 import ERC20EventMint from './erc20-event-mint';
-import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
 import { useErc20Mint } from '../../lib/blockchain';
 import { useToken } from '../../lib/state';
 import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
@@ -41,8 +40,6 @@ function ERC20ContractMintTokens() {
 }
 
 export default function ERC20WriteMint() {
-  const contract = useContractAutoLoad('TokenUSDC');
-
   return (
     <div className="card w-full">
       <BranchIsWalletConnected>

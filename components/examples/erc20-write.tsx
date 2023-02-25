@@ -7,7 +7,6 @@ import { useSigner } from 'wagmi';
 
 import { erc20ABI } from '../../abis/erc20ABI';
 import { erc20ByteCode } from '../../abis/erc20ByteCode';
-import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
 import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 export function ERC20ContractMintTokens() {
@@ -105,8 +104,6 @@ export function ERC20ContractTransferTokens() {
 }
 
 export default function ERC20Write() {
-  const contract = useContractAutoLoad('TokenUSDC');
-
   return (
     <div className="card w-full">
       <BranchIsWalletConnected>

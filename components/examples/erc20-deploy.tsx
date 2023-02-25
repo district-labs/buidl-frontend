@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { useSigner } from 'wagmi';
 
 import ERC20ABI from '../../abis/MintableERC20.json';
-import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
 import { useToken } from '../../lib/state';
 import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
@@ -50,8 +49,6 @@ export function DeployERC20Contract() {
 }
 
 export default function ERC20Deploy() {
-  const contract = useContractAutoLoad('TokenUSDC');
-
   return (
     <div className="card">
       <BranchIsWalletConnected>

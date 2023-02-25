@@ -2,7 +2,6 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { BigNumber, utils } from 'ethers';
 
-import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
 import {
   useErc20Decimals,
   useErc20Name,
@@ -88,7 +87,6 @@ function ERC20Decimals({
 }
 
 export default function ERC20Read() {
-  const contract = useContractAutoLoad('TokenUSDC');
   const [token] = useToken();
 
   return (
