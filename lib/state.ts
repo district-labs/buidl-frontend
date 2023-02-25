@@ -25,10 +25,10 @@ export const tokensWatching = atom(
 export const useToken = () => {
   const [token, set] = useAtom(tokensWatching)
   const setToken = useCallback(
-    (token: any) => {
-      set(token)
+    (tokenNew: any) => {
+      set(tokenNew)
     },
-    [token, set]
+    [set]
   )
   return [token, setToken] as const
 }
