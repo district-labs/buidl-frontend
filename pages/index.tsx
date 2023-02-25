@@ -76,10 +76,10 @@ const Home: NextPage = () => {
                   <h3 className="text-center text-4xl font-bold">
                     Bonus Section
                   </h3>
-                  <OrbisDiscussion />
                 </>
                 <></>
               </BranchTokenMinted>
+              <OrbisDiscussion />
             </>
           </BranchIsWalletConnected>
         </div>
