@@ -1,12 +1,14 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import BranchIsWalletConnected from "../shared/branch-is-wallet-connected";
-import { useContractAutoLoad } from "../../hooks/use-contract-auto-load";
-import { useForm } from "react-hook-form";
-import { ethers, Signer } from "ethers";
-import { useSigner } from "wagmi";
-import { useState } from "react";
-import { erc20ABI } from "../../abis/erc20ABI";
-import { erc20ByteCode } from "../../abis/erc20ByteCode";
+import { useState } from 'react';
+
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { Signer, ethers } from 'ethers';
+import { useForm } from 'react-hook-form';
+import { useSigner } from 'wagmi';
+
+import { erc20ABI } from '../../abis/erc20ABI';
+import { erc20ByteCode } from '../../abis/erc20ByteCode';
+import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
+import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 export function ERC20ContractMintTokens() {
   const {
@@ -24,8 +26,8 @@ export function ERC20ContractMintTokens() {
       signer as Signer
     );
     const contract = await factory.deploy(
-      ethers.utils.parseEther("1000"),
-      data.name || "Token",
+      ethers.utils.parseEther('1000'),
+      data.name || 'Token',
       18,
       data.symbol
     );
@@ -39,7 +41,7 @@ export function ERC20ContractMintTokens() {
         <label>Amount</label>
         <input
           placeholder="1000"
-          {...(register("amount"), { required: true })}
+          {...(register('amount'), { required: true })}
           className="input"
         />
         {errors.exampleRequired && <span>This field is required</span>}
@@ -68,8 +70,8 @@ export function ERC20ContractTransferTokens() {
       signer as Signer
     );
     const contract = await factory.deploy(
-      ethers.utils.parseEther("1000"),
-      data.name || "Token",
+      ethers.utils.parseEther('1000'),
+      data.name || 'Token',
       18,
       data.symbol
     );
@@ -83,13 +85,13 @@ export function ERC20ContractTransferTokens() {
         <label>Amount</label>
         <input
           placeholder="10"
-          {...(register("amount"), { required: true })}
+          {...(register('amount'), { required: true })}
           className="input"
         />
         <label>To</label>
         <input
           placeholder="kames.eth"
-          {...register("symbol", { required: true })}
+          {...register('symbol', { required: true })}
           className="input"
         />
         {errors.exampleRequired && <span>This field is required</span>}
@@ -103,13 +105,13 @@ export function ERC20ContractTransferTokens() {
 }
 
 export default function ERC20Write() {
-  const contract = useContractAutoLoad("TokenUSDC");
+  const contract = useContractAutoLoad('TokenUSDC');
 
   return (
     <div className="card w-full">
       <BranchIsWalletConnected>
         <div className="w-full">
-          <div className="flex justify-center space-x-10 w-full">
+          <div className="flex w-full justify-center space-x-10">
             <div>
               <h3 className="font-bold">Mint</h3>
               <hr className="my-2" />
@@ -127,7 +129,7 @@ export default function ERC20Write() {
             Mint and transfer tokens to a friend.
           </p>
         </div>
-        <div className="flex items-center gap-10 justify-center">
+        <div className="flex items-center justify-center gap-10">
           <>
             <ConnectButton />
           </>

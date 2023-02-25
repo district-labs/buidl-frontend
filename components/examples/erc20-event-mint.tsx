@@ -1,10 +1,12 @@
 // @ts-nocheck
 /* eslint-disable @next/next/no-img-element */
-import ERC20ABI from "../../abis/MintableERC20.json";
-import { useContractEvent } from "wagmi";
-import { useToken } from "../../lib/state";
-import { useState } from "react";
-import { utils } from "ethers";
+import { useState } from 'react';
+
+import { utils } from 'ethers';
+import { useContractEvent } from 'wagmi';
+
+import ERC20ABI from '../../abis/MintableERC20.json';
+import { useToken } from '../../lib/state';
 
 export default function ERC20EventMint() {
   const [token] = useToken();
@@ -17,7 +19,7 @@ export default function ERC20EventMint() {
   useContractEvent({
     address: token,
     abi: ERC20ABI.abi,
-    eventName: "Transfer",
+    eventName: 'Transfer',
     listener(from, to, amount) {
       if (from == constants.AddressZero) {
         setEvent({
@@ -37,7 +39,7 @@ export default function ERC20EventMint() {
             <p className="">From: {event?.from}</p>
             <p className="">To: {event?.to}</p>
             <p className="">
-              Amount: {utils.formatEther(event?.amount.toString() || "0")}
+              Amount: {utils.formatEther(event?.amount.toString() || '0')}
             </p>
           </>
         )}

@@ -1,6 +1,8 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import React, { useState } from "react";
-import BranchIsWalletConnected from "../shared/branch-is-wallet-connected";
+import React, { useState } from 'react';
+
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 export default function ConnectWallet() {
   const [injectedWallet, setInjectedWallet] = useState<string | null>(null);
@@ -11,11 +13,11 @@ export default function ConnectWallet() {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
+          method: 'eth_requestAccounts',
         });
         setInjectedWallet(accounts[0]);
       } catch (error: any) {
-        console.log("Error connecting account");
+        console.log('Error connecting account');
       }
     }
   };
@@ -23,16 +25,16 @@ export default function ConnectWallet() {
   return (
     <div className="card">
       <BranchIsWalletConnected>
-        <div className="text-center flex justify-center items-center">
+        <div className="flex items-center justify-center text-center">
           <ConnectButton />
         </div>
         <div>
-          <div className="flex items-center gap-10 justify-center">
+          <div className="flex items-center justify-center gap-10">
             <>
               <ConnectButton />
               <button
                 onClick={connectWalletHandler}
-                className="px-4 py-2 bg-green-600 rounded-xl hover:scale-105 font-bold text-white"
+                className="rounded-xl bg-green-600 px-4 py-2 font-bold text-white hover:scale-105"
               >
                 Injected Web3 Connect
               </button>

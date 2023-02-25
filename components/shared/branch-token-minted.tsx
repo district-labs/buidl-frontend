@@ -1,4 +1,4 @@
-import { useToken } from "../../lib/state";
+import { useToken } from '../../lib/state';
 
 export function BranchTokenMinted({ children }: any) {
   const [token] = useToken();

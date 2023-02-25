@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import BranchIsWalletConnected from "../shared/branch-is-wallet-connected";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { BigNumber, utils } from 'ethers';
+
+import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
 import {
   useErc20Decimals,
   useErc20Name,
   useErc20Symbol,
   useErc20TotalSupply,
-} from "../../lib/blockchain";
-import { useContractAutoLoad } from "../../hooks/use-contract-auto-load";
-import { useToken } from "../../lib/state";
-import { BigNumber, utils } from "ethers";
+} from '../../lib/blockchain';
+import { useToken } from '../../lib/state';
+import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 function ERC20Image({
   address,
@@ -87,7 +88,7 @@ function ERC20Decimals({
 }
 
 export default function ERC20Read() {
-  const contract = useContractAutoLoad("TokenUSDC");
+  const contract = useContractAutoLoad('TokenUSDC');
   const [token] = useToken();
 
   return (
@@ -107,7 +108,7 @@ export default function ERC20Read() {
                 Decimals <ERC20Decimals address={token as `0x${string}`} />
               </p>
               <p className="text-xl">
-                Total Supply{" "}
+                Total Supply{' '}
                 <ERC20TotalSupply address={token as `0x${string}`} />
               </p>
             </div>
@@ -115,7 +116,7 @@ export default function ERC20Read() {
           <hr className="my-4" />
           <h3 className="text-center">ERC20 Read</h3>
         </div>
-        <div className="flex items-center gap-10 justify-center">
+        <div className="flex items-center justify-center gap-10">
           <>
             <ConnectButton />
           </>

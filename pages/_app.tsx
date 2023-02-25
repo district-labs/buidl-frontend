@@ -1,16 +1,17 @@
-import "../styles/globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
-import type { AppProps } from "next/app";
+import '../styles/globals.css';
+import '@rainbow-me/rainbowkit/styles.css';
 import {
+  ConnectButton,
   RainbowKitProvider,
   getDefaultWallets,
-  ConnectButton,
-} from "@rainbow-me/rainbowkit";
-import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, goerli } from "wagmi/chains";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
-import { useIsMounted } from "../hooks/use-is-mounted";
+} from '@rainbow-me/rainbowkit';
+import type { AppProps } from 'next/app';
+import { WagmiConfig, configureChains, createClient } from 'wagmi';
+import { arbitrum, goerli, mainnet, optimism, polygon } from 'wagmi/chains';
+import { alchemyProvider } from 'wagmi/providers/alchemy';
+import { publicProvider } from 'wagmi/providers/public';
+
+import { useIsMounted } from '../hooks/use-is-mounted';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -18,7 +19,7 @@ const { chains, provider, webSocketProvider } = configureChains(
     optimism,
     arbitrum,
     polygon,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli] : []),
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   ],
   [
     alchemyProvider({
@@ -31,7 +32,7 @@ const { chains, provider, webSocketProvider } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "RainbowKit App",
+  appName: 'RainbowKit App',
   chains,
 });
 
@@ -54,12 +55,12 @@ function MyApp({ Component, pageProps }: AppProps) {
               <ConnectButton
                 showBalance={false}
                 accountStatus={{
-                  smallScreen: "avatar",
-                  largeScreen: "avatar",
+                  smallScreen: 'avatar',
+                  largeScreen: 'avatar',
                 }}
                 chainStatus={{
-                  smallScreen: "icon",
-                  largeScreen: "icon",
+                  smallScreen: 'icon',
+                  largeScreen: 'icon',
                 }}
               />
             </div>

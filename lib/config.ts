@@ -1,0 +1,2 @@
+export const DEPLOY_URL =
+  'https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdistrict-labs%2Fbuidl-frontend&project-name=BuidlTemplate&repository-name=buidl-frontend&demo-title=BuidlTemplate&env=NEXT_PUBLIC_ALCHEMY_API_KEY,NEXT_PUBLIC_ENABLE_TESTNETS&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2FFdistrict-labs%2Fbuidl-templat%2Fblob%2Fmain%2F.env.example';

@@ -1,14 +1,15 @@
 // @ts-nocheck
-/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 
-import { constants, utils } from 'ethers';
+import { Discussion } from '@orbisclub/components';
 import { useContractEvent } from 'wagmi';
 
+import '@orbisclub/components/dist/index.modern.css';
 import ERC20ABI from '../../abis/MintableERC20.json';
 import { useToken } from '../../lib/state';
 
-export default function ERC20EventTransfer() {
+// https://useorbis.com/documentation
+export default function OrbisDiscussion() {
   const [token] = useToken();
   const [event, setEvent] = useState<{
     from: string;
@@ -21,7 +22,7 @@ export default function ERC20EventTransfer() {
     abi: ERC20ABI.abi,
     eventName: 'Transfer',
     listener(from, to, amount) {
-      if (from !== constants.AddressZero) {
+      if (from == constants.AddressZero) {
         setEvent({
           from,
           to,
@@ -33,17 +34,7 @@ export default function ERC20EventTransfer() {
 
   return (
     <div className="card">
-      <div className="col-span-6">
-        {!event?.to ? null : (
-          <>
-            <p className="">From: {event?.from}</p>
-            <p className="">To: {event?.to}</p>
-            <p className="">
-              Amount: {utils.formatEther(event?.amount.toString() || '0')}
-            </p>
-          </>
-        )}
-      </div>
+      <Discussion context="kjzl6cwe1jw148rf0mn8whed46zub3qnpjkoo5wafpebvxl3ux51vjfmn5yyk94:buidl-week" />
     </div>
   );
 }

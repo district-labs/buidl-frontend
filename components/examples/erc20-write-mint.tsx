@@ -1,12 +1,13 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import BranchIsWalletConnected from "../shared/branch-is-wallet-connected";
-import { useContractAutoLoad } from "../../hooks/use-contract-auto-load";
-import { useForm } from "react-hook-form";
-import { utils } from "ethers";
-import { useAccount } from "wagmi";
-import ERC20EventMint from "./erc20-event-mint";
-import { useErc20Mint } from "../../lib/blockchain";
-import { useToken } from "../../lib/state";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { utils } from 'ethers';
+import { useForm } from 'react-hook-form';
+import { useAccount } from 'wagmi';
+
+import ERC20EventMint from './erc20-event-mint';
+import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
+import { useErc20Mint } from '../../lib/blockchain';
+import { useToken } from '../../lib/state';
+import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 function ERC20ContractMintTokens() {
   const {
@@ -31,7 +32,7 @@ function ERC20ContractMintTokens() {
     <>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <label>Amount</label>
-        <input className="input" placeholder="1000" {...register("amount")} />
+        <input className="input" placeholder="1000" {...register('amount')} />
         {errors.exampleRequired && <span>This field is required</span>}
         <input type="submit" className="btn-normal" />
       </form>
@@ -40,7 +41,7 @@ function ERC20ContractMintTokens() {
 }
 
 export default function ERC20WriteMint() {
-  const contract = useContractAutoLoad("TokenUSDC");
+  const contract = useContractAutoLoad('TokenUSDC');
 
   return (
     <div className="card w-full">
@@ -57,7 +58,7 @@ export default function ERC20WriteMint() {
             Mint tokens to yourself!
           </p>
         </div>
-        <div className="flex items-center gap-10 justify-center">
+        <div className="flex items-center justify-center gap-10">
           <>
             <ConnectButton />
           </>

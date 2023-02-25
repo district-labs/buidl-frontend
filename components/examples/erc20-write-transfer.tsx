@@ -1,15 +1,17 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import BranchIsWalletConnected from "../shared/branch-is-wallet-connected";
-import { useContractAutoLoad } from "../../hooks/use-contract-auto-load";
-import { useForm } from "react-hook-form";
-import { ethers, Signer, utils } from "ethers";
-import { useSigner } from "wagmi";
-import { useState } from "react";
-import { erc20ABI } from "../../abis/erc20ABI";
-import { erc20ByteCode } from "../../abis/erc20ByteCode";
-import ERC20EventTransfer from "./erc20-event-transfer";
-import { useErc20Transfer } from "../../lib/blockchain";
-import { useToken } from "../../lib/state";
+import { useState } from 'react';
+
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { Signer, ethers, utils } from 'ethers';
+import { useForm } from 'react-hook-form';
+import { useSigner } from 'wagmi';
+
+import ERC20EventTransfer from './erc20-event-transfer';
+import { erc20ABI } from '../../abis/erc20ABI';
+import { erc20ByteCode } from '../../abis/erc20ByteCode';
+import { useContractAutoLoad } from '../../hooks/use-contract-auto-load';
+import { useErc20Transfer } from '../../lib/blockchain';
+import { useToken } from '../../lib/state';
+import BranchIsWalletConnected from '../shared/branch-is-wallet-connected';
 
 export function ERC20ContractTransferTokens() {
   const {
@@ -35,9 +37,9 @@ export function ERC20ContractTransferTokens() {
     <>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <label>Amount</label>
-        <input placeholder="10" {...register("amount")} className="input" />
+        <input placeholder="10" {...register('amount')} className="input" />
         <label>To</label>
-        <input placeholder="kames.eth" {...register("to")} className="input" />
+        <input placeholder="kames.eth" {...register('to')} className="input" />
         {errors.exampleRequired && <span>This field is required</span>}
         <input type="submit" className="btn-normal" />
       </form>
@@ -46,7 +48,7 @@ export function ERC20ContractTransferTokens() {
 }
 
 export default function ERC20WriteTransfer() {
-  const contract = useContractAutoLoad("TokenUSDC");
+  const contract = useContractAutoLoad('TokenUSDC');
 
   return (
     <div className="card w-full">
@@ -63,7 +65,7 @@ export default function ERC20WriteTransfer() {
             Transer tokens to a friend.
           </p>
         </div>
-        <div className="flex items-center gap-10 justify-center">
+        <div className="flex items-center justify-center gap-10">
           <>
             <ConnectButton />
           </>
