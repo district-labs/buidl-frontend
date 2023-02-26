@@ -54,7 +54,6 @@ export const OrbisFormSetProfile = ({
   useEffect(() => {
     (async () => {
       let { data, error } = await orbis.getProfile(did);
-      console.log(data);
       if (error) {
         return;
       }
@@ -70,14 +69,10 @@ export const OrbisFormSetProfile = ({
   }, [profile]);
 
   const onSubmit = async (formData: any) => {
-    let submitData = {};
-    const parsedData = Object.keys(formData).forEach((key) =>
+    Object.keys(formData).forEach((key) =>
       formData[key] === undefined ? delete formData[key] : formData[key]
     );
-
-    console.log(parsedData, formData, 'parsedData');
-
-    let { data, error } = await orbis.updateProfile(formData);
+    let { error } = await orbis.updateProfile(formData);
     if (error) {
       console.log(error);
     }

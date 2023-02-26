@@ -1,3 +1,5 @@
+import { profile } from 'console';
+
 import { useEffect, useState } from 'react';
 
 import classNames from 'clsx';
@@ -29,7 +31,7 @@ export const OrbisGetCredentials = ({
   const classes = classNames(className, 'OrbisProfile');
   if (!credentials) return <div className={classes}>loading...</div>;
   return (
-    <div className="grid grid-cols-12 gap-10">
+    <div className="mx-5 grid grid-cols-12 gap-10 gap-y-4 lg:mx-0 lg:gap-y-10">
       {credentials?.map((credential: any, idx: number) => {
         return (
           <div key={idx} className={'card col-span-12 lg:col-span-6'}>
@@ -42,6 +44,14 @@ export const OrbisGetCredentials = ({
             <span className="tag tag-cloud mt-3">
               {credential?.content?.credentialSubject?.protocol}
             </span>
+            <a
+              target={'_blank'}
+              className="btn btn-primary btn-sm btn-pill mt-4 inline-block w-full"
+              href={`https://cerscan.com/mainnet/stream/${credential?.stream_id}`}
+              rel="noreferrer"
+            >
+              View Credential Stream
+            </a>
           </div>
         );
       })}

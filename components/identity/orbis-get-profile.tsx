@@ -15,9 +15,8 @@ export const OrbisGetProfile = ({ className }: OrbisProfileProps) => {
   useEffect(() => {
     (async () => {
       let { data, error } = await orbis.getProfile(did);
-      console.log(data);
       if (error) {
-        return;
+        console.log(error);
       }
       setProfile(data);
     })();

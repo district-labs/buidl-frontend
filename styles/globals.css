@@ -54,5 +54,5 @@
 }
 
 .btn-primary {
-  @apply bg-neutral-700 hover:bg-neutral-600 text-white focus:ring-gray-400 dark:bg-neutral-600 hover:dark:bg-neutral-700;
+  @apply bg-emerald-700 hover:bg-emerald-600 text-white focus:ring-gray-400 dark:bg-emerald-600 hover:dark:bg-emerald-700;
 }

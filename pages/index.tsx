@@ -16,18 +16,18 @@ import { DEPLOY_URL } from '../lib/config';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="px-10">
       <Head>
         <title>Introduction to Web3 Frontend Applications</title>
         <meta name="description" content="Building Web3 Applications" />
       </Head>
       <main className="flex flex-col items-center justify-center space-y-10 py-10">
-        <h1 className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-7xl font-bold text-transparent lg:text-9xl">
+        <h1 className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-5xl font-bold text-transparent lg:text-9xl">
           Welcome To
           <br />
           BUIDL WEEK
         </h1>
-        <p className="text-xl text-gray-500">
+        <p className="text-center text-gray-500 lg:text-xl">
           Introduction to Web3 frontend applications using React
         </p>
         <div className="flex items-center gap-10">

@@ -27,7 +27,6 @@ export function ERC20ContractTransferTokens() {
     const tx = await mintAction.writeAsync({
       recklesslySetUnpreparedArgs: [data.to, utils.parseEther(data.amount)],
     });
-    console.log(tx);
   };
 
   return (
