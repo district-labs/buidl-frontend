@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '@orbisclub/components/dist/index.modern.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   ConnectButton,

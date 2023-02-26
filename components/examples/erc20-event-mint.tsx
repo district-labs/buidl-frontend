@@ -1,8 +1,7 @@
-// @ts-nocheck
 /* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 
-import { utils } from 'ethers';
+import { constants, utils } from 'ethers';
 import { useContractEvent } from 'wagmi';
 
 import ERC20ABI from '../../abis/MintableERC20.json';
