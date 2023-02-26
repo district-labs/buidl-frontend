@@ -6,6 +6,7 @@ import {
   getDefaultWallets,
 } from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
+import Link from 'next/link';
 import { WagmiConfig, configureChains, createClient } from 'wagmi';
 import { arbitrum, goerli, mainnet, optimism, polygon } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
@@ -37,7 +38,7 @@ const { connectors } = getDefaultWallets({
 });
 
 const wagmiClient = createClient({
-  autoConnect: false,
+  autoConnect: true,
   connectors,
   provider,
   webSocketProvider,
@@ -50,6 +51,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       {isMounted && (
         <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains}>
+            <header className="p-3 text-center">
+              <Link href={'/'}>
+                <a className="text-blue-500">Essentials</a>
+              </Link>
+              <span className="mx-3">|</span>
+              <Link href={'/advanced'}>
+                <a className="text-blue-500">Advanced</a>
+              </Link>
+            </header>
             <Component {...pageProps} />
             <div className="fixed right-5 bottom-5">
               <ConnectButton

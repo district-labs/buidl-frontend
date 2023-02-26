@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import OrbisDiscussion from '../components/advanced/orbis-discussion';
 import ConnectWallet from '../components/examples/connect-wallet';
 import ERC20Deploy from '../components/examples/erc20-deploy';
 import ERC20Read from '../components/examples/erc20-read';
@@ -9,6 +8,8 @@ import ERC20WriteMint from '../components/examples/erc20-write-mint';
 import ERC20WriteTransfer from '../components/examples/erc20-write-transfer';
 import SignInWithEthereum from '../components/examples/sign-in-with-ethereum';
 import SignMessages from '../components/examples/sign-messages';
+import SignTransaction from '../components/examples/sign-transaction';
+import OrbisDiscussion from '../components/identity/orbis-discussion';
 import { BranchIsWalletConnected } from '../components/shared/branch-is-wallet-connected';
 import { BranchTokenMinted } from '../components/shared/branch-token-minted';
 import { DEPLOY_URL } from '../lib/config';
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Building Web3 Applications" />
       </Head>
       <main className="flex flex-col items-center justify-center space-y-10 py-10">
-        <h1 className="mt-40 bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-7xl font-bold text-transparent lg:text-9xl">
+        <h1 className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-7xl font-bold text-transparent lg:text-9xl">
           Welcome To
           <br />
           BUIDL WEEK
@@ -67,18 +68,23 @@ const Home: NextPage = () => {
             <>
               <SignMessages />
               <SignInWithEthereum />
+              <SignTransaction />
               <ERC20Deploy />
               <BranchTokenMinted>
                 <>
                   <ERC20Read />
                   <ERC20WriteMint />
                   <ERC20WriteTransfer />
-                  <h3 className="text-center text-4xl font-bold">
-                    Bonus Section
-                  </h3>
                 </>
                 <></>
               </BranchTokenMinted>
+              <span className="mb-0 text-center text-4xl font-bold leading-3">
+                Comment Section
+              </span>
+              <span className="text-center text-lg leading-4 text-neutral-600">
+                Leave a comment, ask a question or just say hi 👋
+              </span>
+              <hr className="my-4" />
               <OrbisDiscussion />
             </>
           </BranchIsWalletConnected>

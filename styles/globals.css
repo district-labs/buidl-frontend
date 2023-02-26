@@ -17,3 +17,42 @@
 .input {
   @apply border-0 px-3 py-3 placeholder-neutral-400 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150;
 }
+
+.tag-base {
+  @apply text-base;
+}
+
+.tag-white {
+  @apply text-gray-700 bg-white;
+}
+.tag-cloud, .tag-light {
+  @apply text-gray-600 bg-gray-100;
+}
+
+.btn {
+  @apply cursor-pointer font-semibold rounded-md shadow-md py-3 inline-block px-4 text-center focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 duration-200;
+}
+
+.btn-sm {
+  @apply text-sm;
+}
+
+.btn-lg {
+  @apply text-lg px-5 py-4;
+}
+
+.btn-pill {
+  @apply rounded-full;
+}
+
+.btn-curve {
+  @apply rounded-lg;
+}
+
+.btn-xl {
+  @apply text-xl px-5 py-4;
+}
+
+.btn-primary {
+  @apply bg-neutral-700 hover:bg-neutral-600 text-white focus:ring-gray-400 dark:bg-neutral-600 hover:dark:bg-neutral-700;
+}
